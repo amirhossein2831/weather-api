@@ -1,10 +1,12 @@
 const locationDiv = document.querySelector('.location-container');
 const currentWeather = document.querySelector('.weather-current-container');
+const currentWeatherCard = document.querySelector('.weather-current');
 const futureWeather = document.querySelector('.weather-future-container');
 const manualInputContainer = document.querySelector('.manual-location');
 const manualInput = document.getElementById('manual-location-input');
 const applyButton = document.getElementById('apply-location');
 const errorContainer = document.querySelector(".error-container");
+const futureWeatherTitle = document.querySelector(".forecast-title");
 
 showLoading();
 fetchLocation()
@@ -24,7 +26,8 @@ fetchLocation()
   })
   .catch(err => {
     hideLoading();
-    currentWeather.style.visibility = 'hidden';
+    currentWeatherCard.style.visibility = 'hidden';
+    futureWeatherTitle.style.visibility = 'hidden';
     errorContainer.innerHTML = "<strong>Failed to fetch your location</strong>";
     manualInputContainer.style.display = 'block';
   });
@@ -40,7 +43,8 @@ applyButton.addEventListener('click', async () => {
 
     const forecastData = await fetchWeatherForecast(city, 7);
     renderForecastWeather(forecastData, futureWeather);
-    currentWeather.style.visibility = 'visible';
+    currentWeatherCard.style.visibility = 'visible';
+    futureWeatherTitle.style.visibility = 'visible';
 
     manualInputContainer.style.display = 'none'; // hide after success
     hideLoading();
