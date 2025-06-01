@@ -2,26 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IP-based Location</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Weather Application</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>IP-Based Location</h1>
-
-  <div class="location-container">
-    Loading location...
+  <div class="header-title">
+    <h1>Weather Application</h1>
   </div>
-
-  <div class="weather-current-container" ">
-    Loading current weather...
-  </div>
-
-  <div class="weather-future-container"">
-    Loading future weather...
+  <div class="weather-app">
+    <div class="error-container"></div>
+    
+    <div class="app-header">
+      <div class="location-container"></div>
+      <div class="manual-location">
+        <input type="text" id="manual-location-input" placeholder="Enter city name">
+        <button id="apply-location">Apply</button>
+      </div>
+    </div>
+    
+    <div class="app-body">
+      <div class="weather-current-container card"></div>
+      <div class="weather-future-container">
+        <div></div>
+      </div>
+    </div>
+    
+    <div class="loading-overlay">
+      <div class="loader"></div>
+    </div>
   </div>
   
   <script src="js/config.js"></script>
-  <script src="js/exception.js"></script>
+  <script src="js/loading.js"></script>
   <script src="js/location.js"></script>
   <script src="js/weather.js"></script>
   <script src="js/app.js"></script>
