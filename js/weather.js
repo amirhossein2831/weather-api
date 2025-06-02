@@ -9,6 +9,7 @@ async function fetchWeatherForecast(query, days = 7) {
     if (!res.ok) throw new Error(FUTURE_WEATHER_FAILED_ERROR);
     return res.json();
 }
+
 function renderCurrentWeather(data, target) {
     const current = data.current;
     const location = data.location;
